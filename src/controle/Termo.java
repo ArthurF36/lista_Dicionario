@@ -1,6 +1,6 @@
 package controle;
 
-public class Termo {
+public class Termo implements Comparable<Termo> {
     private final String nome;
     private String desc;
 
@@ -11,6 +11,10 @@ public class Termo {
 
     public String getNome() {
         return this.nome;
+    }
+
+    public String getDesc() {
+        return this.desc;
     }
 
     public void setDesc(String newDesc) {
