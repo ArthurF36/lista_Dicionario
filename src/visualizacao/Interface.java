@@ -10,7 +10,6 @@ public class Interface {
         char op;
         System.out.println("Bem vindo ao site de cadadastro de termos no dicionário: ");
         menuCadastro();
-
         do {
             System.out.println();
             System.out.println("Digite 6 para rever o menu.");
