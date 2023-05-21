@@ -2,44 +2,53 @@ package modulo;
 
 import controle.*;
 
-public class listaPrinc<T extends Comparable<T>> {
-    private Node<T> fist;
-    private Node<T> last;
+public class listaPrinc {
+    private NodePrinc fist;
+    private NodePrinc last;
     private int qnt;
 
-    public void inserirPrinc(T letter, Termo word) {
-        Node<T> newLetter = new Node<>(letter);
+    public void inserirPrinc(Letra letter, Termo word) {
+        NodePrinc newLetter = new NodePrinc(letter);
         if (this.isEmpty()) {
             this.fist = newLetter;
             this.last = newLetter;
-            this.qnt++;
         }
         else if (this.fist.getInfo().compareTo(newLetter.getInfo()) > 0) {
-            newLetter.setProx(this.fist);
+            newLetter.setNext(this.fist);
             this.fist.setFormer(newLetter);
             this.fist = newLetter;
-            this.qnt++;
         }
         else if (this.last.getInfo().compareTo(newLetter.getInfo()) < 0) {
             newLetter.setFormer(this.last);
-            this.last.setProx(newLetter);
+            this.last.setNext(newLetter);
             this.last = newLetter;
-            this.qnt++;
         }
         else {
-            if (search(newLetter) != null) {
-
+            NodePrinc aux = this.fist;
+            while (aux != null) {
+                if (aux.getInfo().compareTo(newLetter.getInfo()) == 0) {
+                    break;
+                }
+                else if (aux.getInfo().compareTo(newLetter.getInfo()) > 0) {
+                    aux.getFormer().setNext(newLetter);
+                    newLetter.setFormer(aux.getFormer());
+                    aux.setFormer(newLetter);
+                    newLetter.setNext(aux);
+                }
+                aux = aux.getNext();
             }
         }
+        this.qnt++;
+        newLetter.getInfo().getList().inserirSecun(word);
     }
 
-    private Node<T> search(Node<T> buscaW) {
-        Node<T> aux = this.fist;
+    private NodePrinc search(NodePrinc buscaW) {
+        NodePrinc aux = this.fist;
         while (aux != null) {
             if (aux.getInfo().compareTo(buscaW.getInfo()) == 0) {
                 return aux;
             }
-            aux = aux.getProx();
+            aux = aux.getNext();
         }
         return null;
     }

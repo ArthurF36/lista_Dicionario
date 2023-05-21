@@ -1,6 +1,6 @@
 package controle;
 
-public class Termo implements Comparable<Termo> {
+public class Termo {
     private final String nome;
     private String desc;
 

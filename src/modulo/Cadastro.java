@@ -7,7 +7,7 @@ public class Cadastro {
     public void inserir() {
         Scanner in = new Scanner(System.in);
         Validacao valid = new Validacao();
-        listaPrinc<Letra> princ = new listaPrinc<>();
+        listaPrinc princ = new listaPrinc();
         Letra letterList;
         Termo term;
         String name, descr;
