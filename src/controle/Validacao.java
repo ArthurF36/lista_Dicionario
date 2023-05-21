@@ -11,7 +11,9 @@ public class Validacao {
         System.out.println("Olá 2");
         for (i = 0; i <= size - 1; i++) {
             letter = nome.charAt(i);
-            System.out.println(letter);
+            if (!Character.isLetter(letter)) {
+                return false;
+            }
         }
         return true;
     }
