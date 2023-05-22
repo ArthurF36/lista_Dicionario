@@ -19,6 +19,9 @@ public class Interface {
             if (op == '1') {
                 list.inserir(princ);
             }
+            else if (op == '3') {
+                list.exibe(princ);
+            }
             else if (op == '5') {
                 princ.exibirPrinc();
             }
