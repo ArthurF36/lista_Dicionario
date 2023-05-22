@@ -2,7 +2,10 @@ package modulo;
 
 import controle.*;
 
+import java.util.Scanner;
+
 public class listaSecun {
+    Scanner in = new Scanner(System.in);
     private NodeSecun fist;
     private NodeSecun last;
     private int qnt;
@@ -77,7 +80,10 @@ public class listaSecun {
         searchW = new NodeSecun(word);
         aux = search(searchW);
         if (aux != null) {
-           // aux.getInfo().setDesc();
+            System.out.print("Digite a sua nova descrição: ");
+            newDesc = in.nextLine();
+            aux.getInfo().setDesc(newDesc);
+            System.out.println("Edição relizada.");
             return;
         }
         System.out.println("Palavra não cadastrada.");

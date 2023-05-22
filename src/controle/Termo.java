@@ -22,7 +22,7 @@ public class Termo {
     }
 
     public void setDesc(String newDesc) {
-        this.desc = this.desc;
+        this.desc = newDesc;
     }
 
     public int compareTo(Termo compara) {

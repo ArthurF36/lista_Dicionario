@@ -98,6 +98,21 @@ public class listaPrinc {
         System.out.println("Palavra não cadastrada.");
     }
 
+    public void exibirLetra(Letra letterList) {
+        NodePrinc aux, searchL;
+        searchL = new NodePrinc(letterList);
+        if (this.isEmpty()) {
+            System.out.println("Dicionário vazio.");
+            return;
+        }
+        aux = search(searchL);
+        if (aux != null) {
+            aux.getInfo().getList().exibirSecun();
+            return;
+        }
+        System.out.println("Palavras com está letras estão não cadastradas.");
+    }
+
     private NodePrinc search(NodePrinc buscaL) {
         NodePrinc aux = this.fist;
         do {

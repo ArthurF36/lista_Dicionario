@@ -4,6 +4,9 @@ import java.util.Scanner;
 import controle.*;
 
 public class Cadastro {
+    Scanner in = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
+
     private final Validacao valid;
 
     public Cadastro() {
@@ -11,7 +14,6 @@ public class Cadastro {
     }
 
     public void inserir(listaPrinc princ) {
-        Scanner in = new Scanner(System.in);
         Letra letterList;
         Termo term;
         String name, descr;
@@ -29,18 +31,17 @@ public class Cadastro {
             princ.inserirPrinc(letterList, term);
         }
         else {
-            System.out.println("Nome não valido para insesão.");
+            System.out.println("Nome não valido.");
         }
     }
 
-    public void exibe(listaPrinc princ) {
-        Scanner in = new Scanner(System.in);
+    public void exibir(listaPrinc princ) {
         Letra letterList;
         Termo term;
         String name;
         char letter;
         boolean nameValid;
-        System.out.print("Informe o nome para lista a sua busca: ");
+        System.out.print("Informe o nome desejado para sua busca: ");
         name = in.nextLine().toUpperCase();
         nameValid = valid.testeTermo(name);
         if (nameValid) {
@@ -48,6 +49,42 @@ public class Cadastro {
             letterList = new Letra(letter);
             term = new Termo(name);
             princ.exibirDescr(letterList, term);
+        }
+        else {
+            System.out.println("Nome não valido.");
+        }
+    }
+
+    public void editar(listaPrinc princ) {
+        Letra letterList;
+        Termo term;
+        String name;
+        char letter;
+        boolean nameValid;
+        System.out.print("Informe o nome desejado para sua edição: ");
+        name = in.nextLine().toUpperCase();
+        nameValid = valid.testeTermo(name);
+        if (nameValid) {
+            letter = name.charAt(0);
+            letterList = new Letra(letter);
+            term = new Termo(name);
+            princ.editarPrinc(letterList, term);
+        }
+        else {
+            System.out.println("Nome não valido.");
+        }
+    }
+
+    public void exibirLetra(listaPrinc princ) {
+        Letra letterList;
+        char letter;
+        boolean letterValid;
+        System.out.print("Informe a letra desejada para exibição: ");
+        letter = input.next().charAt(0);
+        letterValid = valid.testLetra(letter);
+        if (letterValid) {
+            letterList = new Letra(letter);
+            princ.exibirLetra(letterList);
         }
     }
 }
