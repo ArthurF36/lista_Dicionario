@@ -51,6 +51,48 @@ public class listaPrinc {
         newLetter.getInfo().getList().inserirSecun(word);
     }
 
+    public void removerPrinc(Letra letter, Termo word) {
+        NodePrinc newLetter = new NodePrinc(letter);
+        NodePrinc aux, former, next;
+        Letra auxL;
+        boolean remover;
+        if (this.isEmpty()) {
+            System.out.println("Dicionário vazio.");
+            return;
+        }
+        aux = search(newLetter);
+        if (aux == null) {
+            System.out.println("Nome não cadastrado no dicionário.");
+            return;
+        }
+        remover = aux.getInfo().getList().removerSecun(word);
+        if (remover) {
+            former = aux.getFormer();
+            next = aux.getNext();
+            auxL = aux.getInfo();
+            if (auxL.getList().isEmpty()) {
+                if (this.fist.getInfo().compareTo(aux.getInfo()) == 0) {
+                    if (this.qnt == 1) {
+                        this.fist = null;
+                        this.last = null;
+                    } else {
+                        former.setNext(this.fist.getNext());
+                        next.setFormer(this.last);
+                        this.fist = this.fist.getNext();
+                    }
+                } else if (this.last.getInfo().compareTo(aux.getInfo()) == 0) {
+                    former.setNext(this.fist);
+                    next.setFormer(this.last.getFormer());
+                    this.last = this.last.getFormer();
+                } else {
+                    former.setNext(next);
+                    next.setFormer(former);
+                }
+                this.qnt--;
+            }
+        }
+    }
+
     public void exibirPrinc() {
         NodePrinc aux;
         Letra exibe;
@@ -110,7 +152,7 @@ public class listaPrinc {
             aux.getInfo().getList().exibirSecun();
             return;
         }
-        System.out.println("Palavras com estas letras não estão cadastradas.");
+        System.out.println("Palavras com está letra não estão cadastradas.");
     }
 
     private NodePrinc search(NodePrinc buscaL) {

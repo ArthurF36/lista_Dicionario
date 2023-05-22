@@ -53,6 +53,49 @@ public class listaSecun {
         System.out.println("Inseção efetuada.");
     }
 
+    public boolean removerSecun(Termo word) {
+        NodeSecun newLetter = new NodeSecun(word);
+        NodeSecun aux, former, next;
+        if (this.qnt == 1) {
+            if (this.fist.getInfo().compareTo(newLetter.getInfo()) != 0) {
+                System.out.println("Nome não cadastrado no dicionário.");
+                return false;
+            }
+            this.fist = null;
+            this.last = null;
+        }
+        else {
+            aux = search(newLetter);
+            if (aux == null) {
+                System.out.println("Nome não cadastrado no dicionário.");
+                return false;
+            }
+            else {
+                System.out.println("Olá 4");
+                former = aux.getFormer();
+                next = aux.getNext();
+                if (this.fist.getInfo().compareTo(aux.getInfo()) == 0) {
+                    former.setNext(this.fist.getNext());
+                    next.setFormer(this.last);
+                    this.fist = this.fist.getNext();
+                    System.out.println(fist.getInfo().toString());
+                }
+                else if (this.last.getInfo().compareTo(aux.getInfo()) == 0) {
+                    former.setNext(this.fist);
+                    next.setFormer(this.last.getFormer());
+                    this.last = this.last.getFormer();
+                }
+                else {
+                    former.setNext(next);
+                    next.setFormer(former);
+                }
+            }
+        }
+        this.qnt--;
+        System.out.println("Nome removido.");
+        return true;
+    }
+
     public void exibirSecun() {
         NodeSecun aux;
         aux = this.fist;
@@ -100,7 +143,7 @@ public class listaSecun {
         return null;
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         if (this.fist == null && this.last == null && this.qnt == 0) {
             return true;
         }

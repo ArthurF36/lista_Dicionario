@@ -35,6 +35,26 @@ public class Cadastro {
         }
     }
 
+    public void remover(listaPrinc princ) {
+        Letra letterList;
+        Termo term;
+        String name;
+        char letter;
+        boolean nameValid;
+        System.out.print("Informe o nome que deseja ser removido: ");
+        name = in.nextLine().toUpperCase();
+        nameValid = valid.testeTermo(name);
+        if (nameValid) {
+            letter = name.charAt(0);
+            letterList = new Letra(letter);
+            term = new Termo(name);
+            princ.removerPrinc(letterList, term);
+        }
+        else {
+            System.out.println("Nome não valido.");
+        }
+    }
+
     public void exibir(listaPrinc princ) {
         Letra letterList;
         Termo term;
