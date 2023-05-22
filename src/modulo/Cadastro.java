@@ -31,7 +31,7 @@ public class Cadastro {
             princ.inserirPrinc(letterList, term);
         }
         else {
-            System.out.println("Nome não valido.");
+            System.out.println("Nome não válido.");
         }
     }
 
