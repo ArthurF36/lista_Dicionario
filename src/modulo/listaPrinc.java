@@ -65,12 +65,12 @@ public class listaPrinc {
 
     private NodePrinc search(NodePrinc buscaW) {
         NodePrinc aux = this.fist;
-        while (aux != null) {
+        do {
             if (aux.getInfo().compareTo(buscaW.getInfo()) == 0) {
                 return aux;
             }
             aux = aux.getNext();
-        }
+        } while (aux != this.fist);
         return null;
     }
 
