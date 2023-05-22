@@ -13,7 +13,7 @@ public class Interface {
         menuCadastro();
         do {
             System.out.println();
-            System.out.println("Digite 6 para rever o menu.");
+            System.out.println("Digite 7 para rever o menu.");
             System.out.print("Informe a sua opção desejada: ");
             op = in.next().charAt(0);
             if (op == '1') {
@@ -22,7 +22,7 @@ public class Interface {
             else if (op == '5') {
                 princ.exibirPrinc();
             }
-            else if (op == '6') {
+            else if (op == '7') {
                 menuCadastro();
             }
             else if (op == '0') {
@@ -40,6 +40,7 @@ public class Interface {
         System.out.println("3 - Exibir a descrição de um termo.");
         System.out.println("4 - Editar a descrição de um termo.");
         System.out.println("5 - Exibir todas os temos cadastrados.");
+        System.out.println("6 - Exibi todos os termos com a mesma letra inicial.");
         System.out.println("0 - Sair do site");
     }
 }

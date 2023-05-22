@@ -9,6 +9,10 @@ public class Termo {
         this.desc = newDesc;
     }
 
+    public Termo(String newNome) {
+        this.nome = newNome;
+    }
+
     public String getNome() {
         return this.nome;
     }

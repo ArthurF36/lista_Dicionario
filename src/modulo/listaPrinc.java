@@ -68,6 +68,10 @@ public class listaPrinc {
         }
     }
 
+    public void exibirDescr(Letra letterList, Termo term) {
+
+    }
+
     private NodePrinc search(NodePrinc buscaW) {
         NodePrinc aux = this.fist;
         do {
@@ -83,8 +87,6 @@ public class listaPrinc {
         if (this.fist == null && this.last == null && this.qnt == 0) {
             return true;
         }
-        else {
-            return false;
-        }
+        return false;
     }
 }
