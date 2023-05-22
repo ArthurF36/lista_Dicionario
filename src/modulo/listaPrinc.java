@@ -61,7 +61,7 @@ public class listaPrinc {
             aux = this.fist;
             do {
                 exibe = aux.getInfo();
-                System.out.println(exibe);
+                System.out.println(exibe.toString());
                 exibe.getList().exibirSecun();
                 aux = aux.getNext();
             } while (aux != this.fist);
@@ -110,7 +110,7 @@ public class listaPrinc {
             aux.getInfo().getList().exibirSecun();
             return;
         }
-        System.out.println("Palavras com está letras estão não cadastradas.");
+        System.out.println("Palavras com estas letras não estão cadastradas.");
     }
 
     private NodePrinc search(NodePrinc buscaL) {

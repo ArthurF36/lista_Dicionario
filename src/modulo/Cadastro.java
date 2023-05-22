@@ -80,7 +80,7 @@ public class Cadastro {
         char letter;
         boolean letterValid;
         System.out.print("Informe a letra desejada para exibição: ");
-        letter = input.next().charAt(0);
+        letter = Character.toUpperCase(input.next().charAt(0));
         letterValid = valid.testLetra(letter);
         if (letterValid) {
             letterList = new Letra(letter);

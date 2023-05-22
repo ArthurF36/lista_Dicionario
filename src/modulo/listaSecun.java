@@ -34,7 +34,7 @@ public class listaSecun {
                 anter = aux.getFormer();
                 compare = aux.getInfo().compareTo(newWord.getInfo());
                 if (compare == 0) {
-                    System.out.println("Palavra já listada no dicionário");
+                    System.out.println("Palavra já listada no dicionário.");
                     return;
                 }
                 else if (compare > 0) {
