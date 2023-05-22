@@ -38,11 +38,11 @@ public class Interface {
     }
 
     private static void menuCadastro() {
-        System.out.println("1 - Incerir um novo termo.");
+        System.out.println("1 - Incerir um novo termo."); //Ok
         System.out.println("2 - Remover um termo já registrado");
-        System.out.println("3 - Exibir a descrição de um termo.");
+        System.out.println("3 - Exibir a descrição de um termo."); //Ok
         System.out.println("4 - Editar a descrição de um termo.");
-        System.out.println("5 - Exibir todas os temos cadastrados.");
+        System.out.println("5 - Exibir todas os temos cadastrados."); //Ok
         System.out.println("6 - Exibi todos os termos com a mesma letra inicial.");
         System.out.println("0 - Sair do site");
     }

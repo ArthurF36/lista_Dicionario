@@ -68,14 +68,40 @@ public class listaPrinc {
         }
     }
 
-    public void exibirDescr(Letra letterList, Termo term) {
-
+    public void exibirDescr(Letra letterList, Termo word) {
+        NodePrinc aux, searchL;
+        searchL = new NodePrinc(letterList);
+        if (this.isEmpty()) {
+            System.out.println("Dicionário vazio.");
+            return;
+        }
+        aux = search(searchL);
+        if (aux != null) {
+            aux.getInfo().getList().exibirTermo(word);
+            return;
+        }
+        System.out.println("Palavra não cadastrada.");
     }
 
-    private NodePrinc search(NodePrinc buscaW) {
+    public void editarPrinc(Letra letterList, Termo word) {
+        NodePrinc aux, searchL;
+        searchL = new NodePrinc(letterList);
+        if (this.isEmpty()) {
+            System.out.println("Dicionário vazio.");
+            return;
+        }
+        aux = search(searchL);
+        if (aux != null) {
+            aux.getInfo().getList().editarSecun(word);
+            return;
+        }
+        System.out.println("Palavra não cadastrada.");
+    }
+
+    private NodePrinc search(NodePrinc buscaL) {
         NodePrinc aux = this.fist;
         do {
-            if (aux.getInfo().compareTo(buscaW.getInfo()) == 0) {
+            if (aux.getInfo().compareTo(buscaL.getInfo()) == 0) {
                 return aux;
             }
             aux = aux.getNext();

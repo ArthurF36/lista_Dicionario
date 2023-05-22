@@ -60,6 +60,29 @@ public class listaSecun {
         System.out.println();
     }
 
+    public void exibirTermo(Termo word) {
+        NodeSecun aux, searchW;
+        searchW = new NodeSecun(word);
+        aux = search(searchW);
+        if (aux != null) {
+            System.out.println(aux.getInfo().toString());
+            return;
+        }
+        System.out.println("Palavra não cadastrada.");
+    }
+
+    public void editarSecun(Termo word) {
+        NodeSecun aux, searchW;
+        String newDesc;
+        searchW = new NodeSecun(word);
+        aux = search(searchW);
+        if (aux != null) {
+           // aux.getInfo().setDesc();
+            return;
+        }
+        System.out.println("Palavra não cadastrada.");
+    }
+
     private NodeSecun search(NodeSecun buscaW) {
         NodeSecun aux = this.fist;
         do {
