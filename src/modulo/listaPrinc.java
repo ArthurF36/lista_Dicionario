@@ -12,21 +12,16 @@ public class listaPrinc {
         if (this.isEmpty()) {
             this.fist = newLetter;
             this.last = newLetter;
-            this.fist.setFormer(this.last);
-            this.last.setNext(this.fist);
         }
         else if (this.fist.getInfo().compareTo(newLetter.getInfo()) > 0) {
-            System.out.println("olá 10");
             newLetter.setNext(this.fist);
             this.fist.setFormer(newLetter);
             this.fist = newLetter;
-            this.fist.setFormer(this.last);
         }
         else if (this.last.getInfo().compareTo(newLetter.getInfo()) < 0) {
             newLetter.setFormer(this.last);
             this.last.setNext(newLetter);
             this.last = newLetter;
-            this.last.setNext(this.fist);
         }
         else {
             NodePrinc aux = this.fist;
@@ -36,7 +31,6 @@ public class listaPrinc {
                 anter = aux.getFormer();
                 compare = aux.getInfo().compareTo(newLetter.getInfo());
                 if (compare == 0) {
-                    System.out.println("Hello");
                     this.qnt++;
                     aux.getInfo().getList().inserirSecun(word);
                     return;
@@ -51,6 +45,8 @@ public class listaPrinc {
                 aux = aux.getNext();
             } while (aux != this.fist);
         }
+        this.fist.setFormer(this.last);
+        this.last.setNext(this.fist);
         this.qnt++;
         newLetter.getInfo().getList().inserirSecun(word);
     }
@@ -68,7 +64,6 @@ public class listaPrinc {
                 System.out.println(exibe);
                 exibe.getList().exibirSecun();
                 aux = aux.getNext();
-                System.out.println(aux.getInfo().toString());
             } while (aux != this.fist);
         }
     }

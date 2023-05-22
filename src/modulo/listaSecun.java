@@ -10,25 +10,18 @@ public class listaSecun {
     public void inserirSecun(Termo word) {
         NodeSecun newWord = new NodeSecun(word);
         if (this.isEmpty()) {
-            System.out.println("Olá");
             this.fist = newWord;
             this.last = newWord;
-            this.fist.setFormer(this.last);
-            this.last.setNext(this.fist);
         }
         else if (this.fist.getInfo().compareTo(newWord.getInfo()) > 0) {
-            System.out.println("Olá 1");
             newWord.setNext(this.fist);
             this.fist.setFormer(newWord);
             this.fist = newWord;
-            this.fist.setFormer(this.last);
         }
         else if (this.last.getInfo().compareTo(newWord.getInfo()) < 0) {
-            System.out.println("Olá 2");
             newWord.setFormer(this.last);
             this.last.setNext(newWord);
             this.last = newWord;
-            this.last.setNext(this.fist);
         }
         else {
             NodeSecun aux = this.fist;
@@ -42,7 +35,6 @@ public class listaSecun {
                     return;
                 }
                 else if (compare > 0) {
-                    System.out.println("Olá 3");
                     anter.setNext(newWord);
                     newWord.setFormer(anter);
                     aux.setFormer(newWord);
@@ -52,6 +44,8 @@ public class listaSecun {
                 aux = aux.getNext();
             } while (aux != this.fist);
         }
+        this.fist.setFormer(this.last);
+        this.last.setNext(this.fist);
         this.qnt++;
         System.out.println("Inseção efetuada.");
     }
@@ -64,6 +58,17 @@ public class listaSecun {
             aux = aux.getNext();
         } while (aux != this.fist);
         System.out.println();
+    }
+
+    private NodeSecun search(NodeSecun buscaW) {
+        NodeSecun aux = this.fist;
+        do {
+            if (aux.getInfo().compareTo(buscaW.getInfo()) == 0) {
+                return aux;
+            }
+            aux = aux.getNext();
+        } while (aux != this.fist);
+        return null;
     }
 
     private boolean isEmpty() {
