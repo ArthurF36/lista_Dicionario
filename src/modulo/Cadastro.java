@@ -51,7 +51,7 @@ public class Cadastro {
             princ.removerPrinc(letterList, term);
         }
         else {
-            System.out.println("Nome não valido.");
+            System.out.println("Nome não válido.");
         }
     }
 
@@ -71,7 +71,7 @@ public class Cadastro {
             princ.exibirDescr(letterList, term);
         }
         else {
-            System.out.println("Nome não valido.");
+            System.out.println("Nome não válido.");
         }
     }
 
@@ -91,7 +91,7 @@ public class Cadastro {
             princ.editarPrinc(letterList, term);
         }
         else {
-            System.out.println("Nome não valido.");
+            System.out.println("Nome não válido.");
         }
     }
 
@@ -105,6 +105,9 @@ public class Cadastro {
         if (letterValid) {
             letterList = new Letra(letter);
             princ.exibirLetra(letterList);
+        }
+        else {
+            System.out.println("Letra não válida.");
         }
     }
 }

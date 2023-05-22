@@ -9,7 +9,7 @@ public class Interface {
         Cadastro list = new Cadastro();
         listaPrinc princ = new listaPrinc();
         char op;
-        System.out.println("Bem vindo ao site de cadadastro de termos no dicionário: ");
+        System.out.println("Bem vindo ao site de cadastro de termos no dicionário: ");
         menuCadastro();
         do {
             System.out.println();
@@ -47,7 +47,7 @@ public class Interface {
     }
 
     private static void menuCadastro() {
-        System.out.println("1 - Incerir um novo termo."); //Ok
+        System.out.println("1 - Inserir um novo termo."); //Ok
         System.out.println("2 - Remover um termo já registrado");
         System.out.println("3 - Exibir a descrição de um termo."); //Ok
         System.out.println("4 - Editar a descrição de um termo."); //Ok
