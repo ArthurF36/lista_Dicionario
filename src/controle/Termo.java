@@ -26,6 +26,6 @@ public class Termo {
     }
 
     public String toString() {
-        return "Nome: " + this.nome + " e descrição: " + this.desc;
+        return "Nome: " + this.nome + " e descrição: " + this.desc + ".";
     }
 }

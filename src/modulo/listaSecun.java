@@ -15,36 +15,42 @@ public class listaSecun {
             this.last = newWord;
             this.fist.setFormer(this.last);
             this.last.setNext(this.fist);
-            System.out.println(this.fist.getInfo().toString());
         }
         else if (this.fist.getInfo().compareTo(newWord.getInfo()) > 0) {
             System.out.println("Olá 1");
             newWord.setNext(this.fist);
             this.fist.setFormer(newWord);
             this.fist = newWord;
+            this.fist.setFormer(this.last);
         }
         else if (this.last.getInfo().compareTo(newWord.getInfo()) < 0) {
             System.out.println("Olá 2");
             newWord.setFormer(this.last);
             this.last.setNext(newWord);
             this.last = newWord;
+            this.last.setNext(this.fist);
         }
         else {
             NodeSecun aux = this.fist;
-            while (aux != null) {
-                if (aux.getInfo().compareTo(newWord.getInfo()) == 0) {
+            NodeSecun anter;
+            int compare;
+            do {
+                anter = aux.getFormer();
+                compare = aux.getInfo().compareTo(newWord.getInfo());
+                if (compare == 0) {
                     System.out.println("Palavra já listada no dicionário");
                     return;
                 }
-                else if (aux.getInfo().compareTo(newWord.getInfo()) > 0) {
+                else if (compare > 0) {
                     System.out.println("Olá 3");
-                    aux.getFormer().setNext(newWord);
-                    newWord.setFormer(aux.getFormer());
+                    anter.setNext(newWord);
+                    newWord.setFormer(anter);
                     aux.setFormer(newWord);
                     newWord.setNext(aux);
+                    break;
                 }
                 aux = aux.getNext();
-            }
+            } while (aux != this.fist);
         }
         this.qnt++;
         System.out.println("Inseção efetuada.");

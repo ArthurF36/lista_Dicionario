@@ -13,7 +13,7 @@ public class Cadastro {
         char letter;
         boolean nameValid;
         System.out.print("Informe o nome para lista: ");
-        name = in.nextLine().toLowerCase();
+        name = in.nextLine().toUpperCase();
         nameValid = valid.testeTermo(name);
         if (nameValid) {
             System.out.print("Informe a sua descrição: ");

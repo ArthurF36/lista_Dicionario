@@ -12,37 +12,46 @@ public class listaPrinc {
         if (this.isEmpty()) {
             this.fist = newLetter;
             this.last = newLetter;
-            this.qnt++;
+            this.fist.setFormer(this.last);
+            this.last.setNext(this.fist);
         }
         else if (this.fist.getInfo().compareTo(newLetter.getInfo()) > 0) {
+            System.out.println("olá 10");
             newLetter.setNext(this.fist);
             this.fist.setFormer(newLetter);
             this.fist = newLetter;
-            this.qnt++;
+            this.fist.setFormer(this.last);
         }
         else if (this.last.getInfo().compareTo(newLetter.getInfo()) < 0) {
             newLetter.setFormer(this.last);
             this.last.setNext(newLetter);
             this.last = newLetter;
-            this.qnt++;
+            this.last.setNext(this.fist);
         }
         else {
             NodePrinc aux = this.fist;
-            while (aux != null) {
-                if (aux.getInfo().compareTo(newLetter.getInfo()) == 0) {
+            NodePrinc anter;
+            int compare;
+            do {
+                anter = aux.getFormer();
+                compare = aux.getInfo().compareTo(newLetter.getInfo());
+                if (compare == 0) {
                     System.out.println("Hello");
-                    break;
+                    this.qnt++;
+                    aux.getInfo().getList().inserirSecun(word);
+                    return;
                 }
-                else if (aux.getInfo().compareTo(newLetter.getInfo()) > 0) {
-                    aux.getFormer().setNext(newLetter);
-                    newLetter.setFormer(aux.getFormer());
+                else if (compare > 0) {
+                    anter.setNext(newLetter);
+                    newLetter.setFormer(anter);
                     aux.setFormer(newLetter);
                     newLetter.setNext(aux);
-                    this.qnt++;
+                    break;
                 }
                 aux = aux.getNext();
-            }
+            } while (aux != this.fist);
         }
+        this.qnt++;
         newLetter.getInfo().getList().inserirSecun(word);
     }
 
@@ -54,12 +63,13 @@ public class listaPrinc {
         }
         else {
             aux = this.fist;
-            while (aux != null) {
+            do {
                 exibe = aux.getInfo();
                 System.out.println(exibe);
                 exibe.getList().exibirSecun();
                 aux = aux.getNext();
-            }
+                System.out.println(aux.getInfo().toString());
+            } while (aux != this.fist);
         }
     }
 
