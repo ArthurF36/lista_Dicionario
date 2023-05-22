@@ -4,10 +4,9 @@ import java.util.Scanner;
 import controle.*;
 
 public class Cadastro {
-    public void inserir() {
+    public void inserir(listaPrinc princ) {
         Scanner in = new Scanner(System.in);
         Validacao valid = new Validacao();
-        listaPrinc princ = new listaPrinc();
         Letra letterList;
         Termo term;
         String name, descr;

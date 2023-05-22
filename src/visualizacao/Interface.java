@@ -7,6 +7,7 @@ public class Interface {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Cadastro list = new Cadastro();
+        listaPrinc princ = new listaPrinc();
         char op;
         System.out.println("Bem vindo ao site de cadadastro de termos no dicionário: ");
         menuCadastro();
@@ -16,8 +17,10 @@ public class Interface {
             System.out.print("Informe a sua opção desejada: ");
             op = in.next().charAt(0);
             if (op == '1') {
-                list.inserir();
-                System.out.println("Olá 5");
+                list.inserir(princ);
+            }
+            else if (op == '5') {
+                princ.exibirPrinc();
             }
             else if (op == '6') {
                 menuCadastro();

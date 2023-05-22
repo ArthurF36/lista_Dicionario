@@ -8,7 +8,6 @@ public class Validacao {
         char letter;
         int i , size;
         size = nome.length();
-        System.out.println("Olá 2");
         for (i = 0; i <= size - 1; i++) {
             letter = nome.charAt(i);
             if (!Character.isLetter(letter)) {
